@@ -1,5 +1,9 @@
 # Smart Priority Planner
 
+## Live Demo
+
+[Open the Smart Priority Planner](https://task-tracker-liart-pi.vercel.app/)
+
 A modern task planner that helps you decide what to work on next using a simple priority model based on urgency, impact, effort, due dates, and overdue risk.
 
 ## Features
