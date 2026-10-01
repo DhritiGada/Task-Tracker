@@ -1,81 +1,70 @@
 # Smart Priority Planner
 
-A modern task-planning dashboard that helps users decide what to work on next by combining urgency, impact, effort, due dates, and overdue risk into a dynamic priority score.
+A modern task-management dashboard that helps users decide what to work on next by scoring tasks using urgency, impact, effort, due dates, and overdue risk.
 
 ## Live Demo
 
 [Open the Smart Priority Planner](https://task-tracker-liart-pi.vercel.app/)
 
-## What it does
+## Overview
 
-Smart Priority Planner turns a basic task list into a decision-support tool. Instead of treating every task equally, it continuously ranks open work and surfaces the task that deserves attention first.
+The original project was a basic React task tracker backed by a local JSON Server. It has been redesigned into a portfolio-ready productivity product focused on prioritization and decision support.
 
-Users can add tasks, assign due dates, estimate effort and impact, organize work by category, track completion, and move between Today, Upcoming, Backlog, Completed, and All views.
+Instead of only storing tasks, the planner evaluates each open item and surfaces the work that deserves attention first.
 
-## Key Features
+## Features
 
-- Dynamic priority scoring based on impact, urgency, effort, and overdue risk
-- Recommended next task that updates as priorities change
-- Today, Upcoming, Backlog, Completed, and All task views
-- Overdue and at-risk task indicators
-- Impact and effort scoring from 1 to 5
-- Search and category filtering
-- Completion-rate and workload metrics
+- Dynamic priority scoring
+- Recommended next task
+- Today, Upcoming, Backlog, Completed, and All views
+- Overdue and at-risk indicators
+- Impact and effort scoring
+- Due-date awareness
+- Categories and filtering
+- Search across tasks
+- Task completion tracking
+- Completion-rate metrics
 - Local browser persistence
-- Responsive dashboard experience
-- No backend or account required for the live demo
+- Responsive dashboard UI
+- Clean Vite-based production build
 
-## Priority Model
+## Prioritization Logic
 
-Each open task receives a calculated priority score. The planner increases the score when a task has:
+Each task receives a priority score based on:
 
-- higher impact
-- a closer deadline
-- an overdue deadline
-- lower relative effort
+- **Impact**: how important the task is
+- **Urgency**: how close the due date is
+- **Effort**: how much work the task requires
+- **Overdue risk**: an additional boost for tasks already past due
 
-Tasks with higher scores rise to the top of the list and influence the Recommended Next section.
+The resulting score is translated into a priority level:
 
-The goal is to make prioritization transparent and useful without forcing users to manually rank every task.
+- Critical
+- High
+- Medium
+- Low
 
-## Product Flow
+Open tasks are sorted by score so the highest-value work stays visible.
 
-1. Add a task with a title, category, due date, impact, and effort.
-2. The planner calculates its priority score automatically.
-3. Open tasks are ranked by score.
-4. The highest-priority open task appears in Recommended Next.
-5. Status indicators highlight work that is overdue, at risk, or on track.
-6. Completing or editing the workload changes the recommendation dynamically.
+## Task Health
+
+The planner also labels tasks based on deadline risk:
+
+- **On track**
+- **At risk**
+- **Overdue**
+- **Completed**
+
+This makes it easier to separate important work from work that is simply recent.
 
 ## Tech Stack
 
-- React 18
+- React
 - Vite
 - React Icons
-- JavaScript
 - CSS
 - Local Storage
 - Vercel
-
-## Architecture
-
-The application is fully client-side for a lightweight portfolio demo.
-
-```text
-User input
-   ↓
-Task state
-   ↓
-Priority scoring logic
-   ↓
-Filtering + ranking
-   ↓
-Dashboard / Recommended Next
-   ↓
-Local Storage persistence
-```
-
-No external database is required. Tasks remain available in the same browser through Local Storage.
 
 ## Run Locally
 
@@ -86,7 +75,7 @@ npm install
 npm run dev
 ```
 
-Open the local URL provided by Vite.
+Then open the local Vite URL shown in your terminal.
 
 ## Production Build
 
@@ -94,14 +83,20 @@ Open the local URL provided by Vite.
 npm run build
 ```
 
-The production output is generated in the `dist` directory.
+The production output is generated in:
+
+```text
+dist/
+```
 
 ## Deployment
 
 The project is deployed on Vercel.
 
-[Launch the live application](https://task-tracker-liart-pi.vercel.app/)
+[View the live application](https://task-tracker-liart-pi.vercel.app/)
 
-## Project Evolution
+## Repository Evolution
 
-This repository originally started as a basic React task tracker backed by JSON Server. It has since been redesigned into a standalone Smart Priority Planner with a modern Vite build, client-side persistence, prioritization logic, analytics, and a production-ready dashboard UI.
+This project was modernized from an older Create React App + JSON Server implementation into a standalone Vite application with local persistence and production-ready deployment.
+
+The redesign focused on turning a simple CRUD task tracker into a decision-support product with prioritization, risk visibility, and clearer workflow organization.
